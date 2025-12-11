@@ -352,7 +352,7 @@
           Repetitive Task Automation
         </div>
         <h1>
-          Stop spending <span class="accent">10+ hours a week</span><br />
+          Keep spending <span class="accent">10+ hours a week</span><br />
           on repetitive work.
         </h1>
         <p class="subtitle">
@@ -425,59 +425,66 @@
 
         <!-- Simple form. For now this can just send an email using mailto.
              Later you can wire it to Formspree, a backend, or anything else. -->
-        <form action="mailto:greg@prinsterrd.com" method="post" enctype="text/plain">
-          <div class="field-group">
-            <div class="row-2">
-              <div>
-                <label for="name">Name</label>
-                <input id="name" name="Name" placeholder="Jane Doe" required />
+             <form action="https://formbold.com/s/6OLkQ" method="POST">
+              <div class="field-group">
+                <div class="row-2">
+                  <div>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" placeholder="Jane Doe" required />
+                  </div>
+                  <div>
+                    <label for="email">Work email</label>
+                    <input id="email" name="email" type="email" placeholder="you@company.com" required />
+                  </div>
+                </div>
+            
+                <div>
+                  <label for="company">Business name</label>
+                  <input id="company" name="company" placeholder="Your company" />
+                </div>
+            
+                <div>
+                  <label for="time">Hours spent per week on this task</label>
+                  <select id="time" name="weekly_hours" required>
+                    <option value="5-10">Around 5–10 hours</option>
+                    <option value="10-20">Around 10–20 hours</option>
+                    <option value="20+">More than 20 hours</option>
+                  </select>
+                </div>
+            
+                <div>
+                  <label for="task">Describe the repetitive task</label>
+                  <textarea id="task" name="task_description" placeholder="For example: onboarding new clients, filling the same PDFs, updating the same reports, etc." required></textarea>
+                </div>
+            
+                <div>
+                  <label for="timeline">How soon do you want this solved?</label>
+                  <select id="timeline" name="timeline" required>
+                    <option value="asap">As soon as possible</option>
+                    <option value="this-month">This month</option>
+                    <option value="next-few-months">In the next few months</option>
+                    <option value="just-exploring">Just exploring options</option>
+                  </select>
+                </div>
+            
+                <!-- optional message field to match FormBold's expectations -->
+                <input type="hidden" name="subject" value="New Automation Lead" />
               </div>
-              <div>
-                <label for="email">Work email</label>
-                <input id="email" name="Email" type="email" placeholder="you@company.com" required />
+            
+              <div class="cta-row">
+                <button type="submit">
+                  <span class="dot"></span>
+                  Get my free evaluation
+                </button>
+                <div class="small-note">
+                  No spam, no pressure. You get a clear plan and a fixed project price. Most builds start at $500.
+                </div>
               </div>
-            </div>
+            </form>
+            
 
-            <div>
-              <label for="company">Business name</label>
-              <input id="company" name="Company" placeholder="Your company" />
-            </div>
 
-            <div>
-              <label for="time">Hours spent per week on this task</label>
-              <select id="time" name="Weekly hours">
-                <option value="5-10">Around 5–10 hours</option>
-                <option value="10-20">Around 10–20 hours</option>
-                <option value="20+">More than 20 hours</option>
-              </select>
-            </div>
 
-            <div>
-              <label for="task">Describe the repetitive task</label>
-              <textarea id="task" name="Task description" placeholder="For example: onboarding new clients, filling the same PDFs, updating the same reports, etc." required></textarea>
-            </div>
-
-            <div>
-              <label for="timeline">How soon do you want this solved?</label>
-              <select id="timeline" name="Timeline">
-                <option value="asap">As soon as possible</option>
-                <option value="this-month">This month</option>
-                <option value="next-few-months">In the next few months</option>
-                <option value="just-exploring">Just exploring options</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="cta-row">
-            <button type="submit">
-              <span class="dot"></span>
-              Get my free evaluation
-            </button>
-            <div class="small-note">
-              No spam, no pressure. You get a clear plan and a fixed project price. Most builds start at $500.
-            </div>
-          </div>
-        </form>
       </div>
     </div>
   </div>
