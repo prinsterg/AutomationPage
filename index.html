@@ -442,6 +442,81 @@
   white-space: normal;     /* allow natural wrapping */
 }
 
+.brand-banner {
+  max-width: 960px;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 auto 20px auto;
+  padding: 8px 0 14px 0;
+  letter-spacing: 1.2px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: brandIn 0.8s ease-out forwards;
+}
+
+/* subtle animated underline "wipe" */
+.brand-banner::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22c55e, #a3e635);
+  transform: translateX(-50%);
+  animation: underlineIn 0.7s 0.35s ease-out forwards;
+}
+
+.brand-tag {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-top: 6px;
+  letter-spacing: 0.4px;
+  opacity: 0;
+  transform: translateY(4px);
+  animation: tagIn 0.6s 0.5s ease-out forwards;
+}
+
+/* animations */
+@keyframes brandIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes underlineIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 120px; /* tweak length if you want */
+    opacity: 1;
+  }
+}
+
+@keyframes tagIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 
   </style>
@@ -451,9 +526,12 @@
 
 <body>
 
-    <div class="local-banner">
-      Local to the St. Charles area? I can visit your office, see exactly how you're working today, and map out the automation with you on-site before we build anything.
-    </div>
+  <div class="brand-banner">
+    Frontline Automation
+    <div class="brand-tag">Eliminate repetitive work. Custom solutions for you.</div>
+  </div>
+  
+
   
 
 
