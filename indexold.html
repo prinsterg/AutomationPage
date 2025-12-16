@@ -4,8 +4,6 @@
   <meta charset="utf-8" />
   <title>Repetitive Task Automation • Custom Tools from $500</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
   <style>
     :root {
       --bg: #0f172a;
@@ -529,23 +527,6 @@
 
 
 
-  
-/* Simple ROI input row */
-.money-row{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.money-prefix, .money-suffix{
-  font-size: 13px;
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-.money-row input{
-  flex: 1;
-}
-
-
   </style>
 </head>
 
@@ -699,16 +680,6 @@
             </div>
 
             <div>
-              <label for="hourly_cost">What does an hour of your time cost your company?</label>
-              <div class="money-row">
-                <span class="money-prefix">$</span>
-                <input id="hourly_cost" name="hourly_cost" type="text" inputmode="decimal" placeholder="50" />
-                <span class="money-suffix">Per Hour</span>
-              </div>
-            </div>
-
-
-            <div>
               <label for="task">Describe the repetitive task</label>
               <textarea id="task" name="message" placeholder="For example: onboarding new clients, filling the same PDFs, updating the same reports, etc." required></textarea>
             </div>
@@ -719,8 +690,8 @@
               <span class="dot"></span>
               Get my free evaluation
             </button>
-            <div class="small-note" id="roi-note">
-              Many clients see at least a 50% time reduction on workflows.
+            <div class="small-note">
+  
             </div>
           </div>
         </form>
@@ -778,83 +749,6 @@
       pill.addEventListener('focus', () => activatePill(pill));
       pill.addEventListener('click', () => activatePill(pill));
     });
-
-
-    // ROI calculator (conservative: assumes at least 50% time reduction)
-    const hoursSelect = document.getElementById('time');
-    const hourlyInput = document.getElementById('hourly_cost');
-    const roiNoteEl = document.getElementById('roi-note');
-
-    function hoursRange(val) {
-      if (!val) return null;
-      if (val === '5-10') return { low: 5, high: 10, plus: false };
-      if (val === '10-20') return { low: 10, high: 20, plus: false };
-      if (val === '20+') return { low: 20, high: null, plus: true };
-      return null; // not-sure or unknown
-    }
-
-    function parseMoney(raw) {
-      if (!raw) return 0;
-      const cleaned = String(raw).replace(/[^0-9.]/g, '');
-      const num = parseFloat(cleaned);
-      return Number.isFinite(num) ? num : 0;
-    }
-
-    function formatUSD(n) {
-      if (!Number.isFinite(n) || n <= 0) return '$___';
-      const rounded = Math.round(n);
-      return '$' + rounded.toLocaleString('en-US');
-    }
-
-    function updateROI() {
-      if (!roiNoteEl) return;
-
-      const hourly = parseMoney(hourlyInput ? hourlyInput.value : '');
-      const range = hoursRange(hoursSelect ? hoursSelect.value : '');
-
-      // Before they enter an hourly value, keep it short.
-      if (!Number.isFinite(hourly) || hourly <= 0) {
-        roiNoteEl.textContent = 'Many clients see at least a 50% time reduction on workflows.';
-        return;
-      }
-
-      // If hours is unknown, keep the placeholder value.
-      if (!range) {
-        roiNoteEl.textContent = 'Many clients see at least a 50% time reduction on workflows, which could be worth about $___ per week.';
-        return;
-      }
-
-      const lowValue = range.low * hourly * 0.5;
-
-      if (range.plus) {
-        roiNoteEl.textContent =
-          'Many clients see at least a 50% time reduction on workflows, which could be worth about ' +
-          formatUSD(lowValue) +
-          '+ per week.';
-        return;
-      }
-
-      const highValue = range.high * hourly * 0.5;
-
-      roiNoteEl.textContent =
-        'Many clients see at least a 50% time reduction on workflows, which could be worth about ' +
-        formatUSD(lowValue) +
-        ' - ' +
-        formatUSD(highValue) +
-        ' per week.';
-    }
-
-    if (hoursSelect) hoursSelect.addEventListener('change', updateROI);
-    if (hourlyInput) {
-      hourlyInput.addEventListener('input', () => {
-        // keep it "text" but strip weird characters for a clean number
-        const cleaned = hourlyInput.value.replace(/[^0-9.]/g, '');
-        if (hourlyInput.value !== cleaned) hourlyInput.value = cleaned;
-        updateROI();
-      });
-    }
-    updateROI();
-
   </script>
   
 </body>
