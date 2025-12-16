@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Repetitive Task Automation • Custom Tools from $500</title>
+  <title>Task Automation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
   <style>
     :root {
       --bg: #0f172a;
@@ -234,10 +232,23 @@
     }
 
     .local-note {
-      margin-top: 8px;
-      font-size: 16px;
-      color: var(--text-muted);
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--text-muted);
+    position: relative;
     }
+
+    .local-note::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 100%;
+      margin-top: 4px;
+      background: linear-gradient(90deg, var(--accent), #a3e635);
+      border-radius: 999px;
+    }
+
 
     .right {
       border-radius: 16px;
@@ -546,7 +557,14 @@
 }
 
 
-  </style>
+  
+.roi-value {
+  font-weight: 700;
+  color: #ffffff;
+}
+</style>
+
+  <link rel="icon" href="FrontlineAutomationLogo.ico" type="image/x-icon">
 </head>
 
 
@@ -577,6 +595,8 @@
         </h1>
         <p class="subtitle">
           I build custom automations and small apps that help your business get more out of your spreadsheets and daily workflows. From smarter reporting to streamlined processes, I eliminate repetitive tasks so your team can focus on real work. If you're nearby, I can come out in person, review your workflow, and provide a clear scope for the project.
+          <br><br>
+          <span class="local-note">Located in St. Charles, Missouri</span>
         </p>
 
         <div class="stats-row">
@@ -597,7 +617,7 @@
         <div class="divider"></div>
 
         <div class="examples">
-          <div class="examples-label">Common projects</div>
+          <div class="examples-label">Common projects (hover</div>
           <div class="examples-pills">
             <button type="button" class="example-pill active"
               data-title="Excel and Sheets automation"
@@ -648,6 +668,29 @@
         <form action="https://formbold.com/s/60LkQ" method="POST">
           <div class="field-group">
             <input type="hidden" name="subject" value="New Automation Lead" />
+
+            <div>
+              <label for="time">Hours spent per week on this task</label>
+              <select id="time" name="weekly_hours">
+                <option value="5-10">Around 5–10 hours</option>
+                <option value="10-20">Around 10–20 hours</option>
+                <option value="20+">More than 20 hours</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="hourly_cost">What does an hour of your time cost your company?</label>
+              <div class="money-row">
+                <span class="money-prefix">$</span>
+                <input id="hourly_cost" name="hourly_cost" type="text" inputmode="decimal" placeholder="50" />
+                <span class="money-suffix">Per Hour</span>
+              </div>
+            </div>
+
+            <div class="small-note" id="roi-note">
+              Many clients see at least a 50% time reduction on workflows.
+            </div>
         
             <div class="row-2">
               <div>
@@ -666,7 +709,7 @@
             </div>
         
             <div>
-              <label for="company">Business name</label>
+              <label for="company">Company name (optional)</label>
               <input id="company" name="company" placeholder="Your company" />
             </div>
         
@@ -687,27 +730,6 @@
                 </label>
               </div>
             </div>
-        
-            <div>
-              <label for="time">Hours spent per week on this task</label>
-              <select id="time" name="weekly_hours">
-                <option value="5-10">Around 5–10 hours</option>
-                <option value="10-20">Around 10–20 hours</option>
-                <option value="20+">More than 20 hours</option>
-                <option value="not-sure">Not sure</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="hourly_cost">What does an hour of your time cost your company?</label>
-              <div class="money-row">
-                <span class="money-prefix">$</span>
-                <input id="hourly_cost" name="hourly_cost" type="text" inputmode="decimal" placeholder="50" />
-                <span class="money-suffix">Per Hour</span>
-              </div>
-            </div>
-
-
             <div>
               <label for="task">Describe the repetitive task</label>
               <textarea id="task" name="message" placeholder="For example: onboarding new clients, filling the same PDFs, updating the same reports, etc." required></textarea>
@@ -719,9 +741,6 @@
               <span class="dot"></span>
               Get my free evaluation
             </button>
-            <div class="small-note" id="roi-note">
-              Many clients see at least a 50% time reduction on workflows.
-            </div>
           </div>
         </form>
         
@@ -820,28 +839,33 @@
 
       // If hours is unknown, keep the placeholder value.
       if (!range) {
-        roiNoteEl.textContent = 'Many clients see at least a 50% time reduction on workflows, which could be worth about $___ per week.';
+        roiNoteEl.textContent = 'Many clients see at least a 50% time reduction on workflows.';
         return;
       }
 
-      const lowValue = range.low * hourly * 0.5;
+      let lowValueWeek = range.low * hourly * 0.5;
+      let highValueWeek = range.plus ? null : (range.high * hourly * 0.5);
+
+      // If the estimate is small, show it as monthly to maximize perceived value.
+      // Use the upper bound when available, otherwise use the lower bound.
+      const referenceWeek = (highValueWeek !== null) ? highValueWeek : lowValueWeek;
+      const useMonthly = referenceWeek > 0 && referenceWeek < 500;
+      const multiplier = useMonthly ? 4 : 1;
+      const periodLabel = useMonthly ? 'per month' : 'per week';
+
+      const lowValue = lowValueWeek * multiplier;
+      const highValue = (highValueWeek === null) ? null : (highValueWeek * multiplier);
 
       if (range.plus) {
-        roiNoteEl.textContent =
-          'Many clients see at least a 50% time reduction on workflows, which could be worth about ' +
-          formatUSD(lowValue) +
-          '+ per week.';
+        roiNoteEl.innerHTML =
+          'Many clients see at least a 50% time reduction on workflows, ' +
+'<span class="roi-value">which could be worth about ' + formatUSD(lowValue) + '+ ' + periodLabel + '.</span>';
         return;
       }
 
-      const highValue = range.high * hourly * 0.5;
-
-      roiNoteEl.textContent =
-        'Many clients see at least a 50% time reduction on workflows, which could be worth about ' +
-        formatUSD(lowValue) +
-        ' - ' +
-        formatUSD(highValue) +
-        ' per week.';
+      roiNoteEl.innerHTML =
+        'Many clients see at least a 50% time reduction on workflows, ' +
+'<span class="roi-value">which could be worth about ' + formatUSD(lowValue) + ' - ' + formatUSD(highValue) + ' ' + periodLabel + '.</span>';
     }
 
     if (hoursSelect) hoursSelect.addEventListener('change', updateROI);
