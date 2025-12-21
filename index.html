@@ -2,28 +2,28 @@
 <html lang="en">
 <head>
 
-<!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '860130156716423');
-  fbq('track', 'PageView');
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '860130156716423');
+    fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=860130156716423&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=860130156716423&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
-   
-  
+
   <meta charset="utf-8" />
   <title>Task Automation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
     :root {
       --bg: #0f172a;
@@ -37,28 +37,22 @@
       --danger-soft: rgba(249,115,22,0.18);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #020617 100%);
-    color: var(--text-main);
-    display: flex;
-    flex-direction: column;      /* add this */
-    align-items: center;
-    justify-content: center;
-    padding: 24px 16px;
-}
-
-
-    .wrapper {
-      width: 100%;
-      max-width: 960px;
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #020617 100%);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
     }
+
+    .wrapper { width: 100%; max-width: 960px; }
 
     .card {
       background: linear-gradient(135deg, rgba(15,23,42,0.98), rgba(15,23,42,0.98));
@@ -74,10 +68,7 @@
     }
 
     @media (max-width: 800px) {
-      .card {
-        grid-template-columns: minmax(0, 1fr);
-        padding: 22px 18px;
-      }
+      .card { grid-template-columns: minmax(0, 1fr); padding: 22px 18px; }
     }
 
     .eyebrow {
@@ -105,21 +96,10 @@
       box-shadow: 0 0 12px rgba(34,197,94,0.8);
     }
 
-    h1 {
-      font-size: 30px;
-      line-height: 1.15;
-      margin: 16px 0 10px;
-    }
+    h1 { font-size: 30px; line-height: 1.15; margin: 16px 0 10px; }
+    @media (min-width: 900px) { h1 { font-size: 34px; } }
 
-    @media (min-width: 900px) {
-      h1 {
-        font-size: 34px;
-      }
-    }
-
-    .accent {
-      color: var(--accent);
-    }
+    .accent { color: var(--accent); }
 
     .subtitle {
       font-size: 14px;
@@ -128,17 +108,8 @@
       max-width: 460px;
     }
 
-    .stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin-bottom: 10px;
-    }
-
-    .stat {
-      min-width: 120px;
-    }
-
+    .stats-row { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 10px; }
+    .stat { min-width: 120px; }
     .stat-label {
       font-size: 11px;
       text-transform: uppercase;
@@ -146,15 +117,8 @@
       color: var(--text-muted);
       margin-bottom: 4px;
     }
-
-    .stat-value {
-      font-size: 18px;
-    }
-
-    .stat-note {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
+    .stat-value { font-size: 18px; }
+    .stat-note { font-size: 11px; color: var(--text-muted); }
 
     .danger-box {
       margin-top: 6px;
@@ -178,21 +142,11 @@
 
     .divider {
       height: 1px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(148,163,184,0.45),
-        transparent
-      );
+      background: linear-gradient(to right, transparent, rgba(148,163,184,0.45), transparent);
       margin: 14px 0 12px;
     }
 
-    /* Example pills + detail panel */
-
-    .examples {
-      margin-top: 4px;
-    }
-
+    .examples { margin-top: 4px; }
     .examples-label {
       font-size: 11px;
       text-transform: uppercase;
@@ -232,6 +186,16 @@
       background: var(--accent-soft);
     }
 
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+      max-height: 320px;
+      line-height: 1.4;
+      padding: 10px 10px;
+    }
+
+
     .examples-detail {
       border-radius: 12px;
       border: 1px solid rgba(148,163,184,0.35);
@@ -241,22 +205,15 @@
       font-size: 12px;
     }
 
-    .examples-detail-title {
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-
-    .examples-detail-text {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
+    .examples-detail-title { font-size: 13px; margin-bottom: 4px; }
+    .examples-detail-text { font-size: 12px; color: var(--text-muted); }
 
     .local-note {
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 16px;
-    color: var(--text-muted);
-    position: relative;
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 16px;
+      color: var(--text-muted);
+      position: relative;
     }
 
     .local-note::after {
@@ -269,7 +226,6 @@
       border-radius: 999px;
     }
 
-
     .right {
       border-radius: 16px;
       padding: 18px 16px;
@@ -280,21 +236,10 @@
       gap: 14px;
     }
 
-    .right-header {
-      font-size: 14px;
-      font-weight: 500;
-    }
+    .right-header { font-size: 14px; font-weight: 500; }
+    .right-sub { font-size: 12px; color: var(--text-muted); }
 
-    .right-sub {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .field-group {
-      display: grid;
-      gap: 10px;
-      margin-top: 6px;
-    }
+    .field-group { display: grid; gap: 10px; margin-top: 6px; }
 
     label {
       font-size: 11px;
@@ -321,97 +266,53 @@
       box-shadow: 0 0 0 1px rgba(34,197,94,0.4);
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 70px;
-      max-height: 160px;
-    }
-
-    .row-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    @media (max-width: 540px) {
-      .row-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
     .cta-row {
-  display: flex;
-  flex-direction: column; /* stack vertically */
-  align-items: center;    /* center horizontally */
-  justify-content: center;
-  text-align: center;
-  gap: 12px;
-  margin-top: 10px;
-}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
 
-/* Contact method container */
-.choice-row {
-  display: flex;
-  gap: 10px;
-  margin-top: 6px;
-  flex-wrap: wrap;
-}
+    .choice-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
 
-/* Each button */
-.choice {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  border: 1px solid rgba(148,163,184,0.4);
-  background: rgba(15,23,42,0.85);
-  color: var(--text-main);
-  transition: all 0.15s ease;
-}
+    .choice {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.85);
+      color: var(--text-main);
+      transition: all 0.15s ease;
+      user-select: none;
+    }
 
-/* Hover effect */
-.choice:hover {
-  border-color: rgba(34,197,94,0.6);
-}
+    .choice:hover { border-color: rgba(34,197,94,0.6); }
 
-/* Hide the radio visually but keep it accessible */
-.choice input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
+    .choice input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
 
-/* Selected state */
-.choice input:checked + span {
-  color: #bbf7d0;
-}
-
-.choice input:checked ~ .choice {
-  border-color: rgba(34,197,94,0.8);
-}
-
-/* When selected, style the parent itself */
-.choice input:checked {
-  outline: none;
-}
-
-.choice:has(input:checked) {
-  border-color: rgba(34,197,94,0.9);
-  background: rgba(34,197,94,0.12);
-  box-shadow: 0 0 10px rgba(34,197,94,0.45);
-}
-
-/* Mobile: keep label above */
-@media (max-width: 540px) {
-  .choice-row {
-    justify-content: flex-start;
-  }
-}
+    .choice:has(input:checked) {
+      border-color: rgba(34,197,94,0.9);
+      background: rgba(34,197,94,0.12);
+      box-shadow: 0 0 10px rgba(34,197,94,0.45);
+    }
 
     button {
       border: none;
@@ -438,155 +339,104 @@
       box-shadow: 0 0 8px rgba(190,242,100,0.9);
     }
 
-    button:hover {
-      filter: brightness(1.04);
-      transform: translateY(-0.5px);
+    button:hover { filter: brightness(1.04); transform: translateY(-0.5px); }
+
+    .small-note { font-size: 14px; color: var(--text-muted); }
+
+    #rotating-text { transition: opacity 0.5s ease; }
+
+    .brand-banner {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 960px;
+      width: 100%;
+      text-align: center;
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0 auto 20px auto;
+      padding: 8px 0 14px 0;
+      letter-spacing: 1.2px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(-10px);
+      animation: brandIn 0.8s ease-out forwards;
     }
 
-    .small-note {
-      font-size: 15px;
-      color: var(--text-muted);
+    .brand-banner::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #22c55e, #a3e635);
+      transform: translateX(-50%);
+      animation: underlineIn 0.7s 0.35s ease-out forwards;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    .brand-tag {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-top: 6px;
+      letter-spacing: 0.4px;
+      opacity: 0;
+      transform: translateY(4px);
+      animation: tagIn 0.6s 0.5s ease-out forwards;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
 
-    #rotating-text {
-  transition: opacity 0.5s ease;
+
+.about-me {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(148,163,184,0.25);
+  background: rgba(15,23,42,0.85);
 }
 
-
-.local-banner {
-  max-width: 960px;        /* match wrapper width */
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 auto 20px auto; /* centered + spacing */
-  padding: 0 10px;
-  line-height: 1.4;
-  white-space: normal;     /* allow natural wrapping */
-}
-
-.brand-banner {
-  font-family: 'Montserrat', sans-serif;
-
-  max-width: 960px;
-  width: 100%;
-  text-align: center;
-  color: #ffffff;
-  font-size: 32px;
-  font-weight: 800;
-  margin: 0 auto 20px auto;
-  padding: 8px 0 14px 0;
-  letter-spacing: 1.2px;
-  position: relative;
-  opacity: 0;
-  transform: translateY(-10px);
-  animation: brandIn 0.8s ease-out forwards;
-}
-
-
-
-
-
-
-
-/* subtle animated underline "wipe" */
-.brand-banner::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0;
-  height: 2px;
+.about-me img {
+  width: 64px;
+  height: 64px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #22c55e, #a3e635);
-  transform: translateX(-50%);
-  animation: underlineIn 0.7s 0.35s ease-out forwards;
+  object-fit: cover;
+  border: 1px solid rgba(148,163,184,0.35);
 }
 
-.brand-tag {
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-name {
   font-size: 14px;
-  color: #9ca3af;
-  margin-top: 6px;
-  letter-spacing: 0.4px;
-  opacity: 0;
-  transform: translateY(4px);
-  animation: tagIn 0.6s 0.5s ease-out forwards;
+  font-weight: 600;
 }
 
-/* animations */
-@keyframes brandIn {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes underlineIn {
-  from {
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    width: 120px; /* tweak length if you want */
-    opacity: 1;
-  }
-}
-
-@keyframes tagIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-
-  
-/* Simple ROI input row */
-.money-row{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.money-prefix, .money-suffix{
-  font-size: 13px;
+.about-desc {
+  font-size: 12px;
   color: var(--text-muted);
-  white-space: nowrap;
 }
-.money-row input{
-  flex: 1;
+
+.about-local {
+  font-size: 12px;
+  color: #bbf7d0;
 }
 
 
-  
-.roi-value {
-  font-weight: 700;
-  color: #ffffff;
-}
-</style>
+
+    @keyframes brandIn { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes underlineIn { from { width: 0; opacity: 0; } to { width: 120px; opacity: 1; } }
+    @keyframes tagIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    .hidden { display: none !important; }
+  </style>
 
   <link rel="icon" href="FrontlineAutomationLogo.ico" type="image/x-icon">
 </head>
-
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -596,10 +446,6 @@
     Frontline Automation
     <div class="brand-tag">Eliminate repetitive work with custom solutions built for you.</div>
   </div>
-  
-
-  
-
 
   <div class="wrapper">
     <div class="card">
@@ -608,11 +454,13 @@
           <span class="badge"></span>
           Repetitive Task Automation
         </div>
+
         <h1>
           Stop spending<br />
           <span class="accent">10+ hours a week</span><br />
           on repetitive work.
         </h1>
+
         <p class="subtitle">
           I build custom automations and small apps that help your business get more out of your spreadsheets and daily workflows. From smarter reporting to streamlined processes, I eliminate repetitive tasks so your team can focus on real work. If you're nearby, I can come out in person, review your workflow, and provide a clear scope for the project.
           <br><br>
@@ -662,118 +510,105 @@
           </div>
 
           <div class="examples-detail">
-            <div class="examples-detail-title" id="example-title">
-              Excel and Sheets automation
-            </div>
+            <div class="examples-detail-title" id="example-title">Excel and Sheets automation</div>
             <div class="examples-detail-text" id="example-text">
               Clean up messy spreadsheets, lock in formulas, and auto-generate reports so your team isn't updating numbers by hand every day. Perfect if you live in Excel for logs, tracking, or reporting.
             </div>
           </div>
-
-
         </div>
       </div>
 
+
+
+
+
       <div class="right">
-        <div>
-          <div class="right-header">
-            Free workflow evaluation
+
+
+
+      <div class="about-me">
+        <img src="PhotoOfMe.png" alt="Greg – Frontline Automation" />
+        <div class="about-text">
+          <div class="about-name">Hi, I’m Greg.</div>
+          <div class="about-desc">
+            I build practical automation for small businesses so you can stop wasting time on repetitive work.
           </div>
-
+          <div class="about-local">
+            Located in O’Fallon, Missouri. Local, experienced, and quick to respond.
+          </div>
         </div>
+      </div>
 
-        
 
+
+
+        <div>
+          <div class="right-header">Free 15 minute workflow review</div>
+          <div class="right-sub">I will reach out in the next 24 hours.</div>
+        </div>
 
         <form id="lead-form" action="https://formbold.com/s/60LkQ" method="POST">
           <div class="field-group">
             <input type="hidden" name="subject" value="New Automation Lead" />
+            <input type="hidden" name="contact_preference" id="contact_preference" value="email" />
 
             <div>
-              <label for="time">Hours spent per week on this task</label>
-              <select id="time" name="weekly_hours">
-                <option value="5-10">Around 5–10 hours</option>
-                <option value="10-20">Around 10–20 hours</option>
-                <option value="20+">More than 20 hours</option>
-                <option value="not-sure">Not sure</option>
-              </select>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Jane Doe" required />
             </div>
 
-            <div>
-              <label for="hourly_cost">What does an hour of your time cost your company?</label>
-              <div class="money-row">
-                <span class="money-prefix">$</span>
-                <input id="hourly_cost" name="hourly_cost" type="text" inputmode="decimal" placeholder="50" />
-                <span class="money-suffix">Per Hour</span>
-              </div>
-            </div>
-
-            <div class="small-note" id="roi-note">
-              Many clients see at least a 50% time reduction on workflows.
-            </div>
-        
-            <div class="row-2">
-              <div>
-                <label for="name">Name</label>
-                <input id="name" name="name" placeholder="Jane Doe" required />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@company.com" required />
-              </div>
-            </div>
-        
-            <div>
-              <label for="phone">Phone number</label>
-              <input id="phone" name="phone" placeholder="555-555-5555" />
-            </div>
-        
-            <div>
-              <label for="company">Company name (optional)</label>
-              <input id="company" name="company" placeholder="Your company" />
-            </div>
-        
             <div>
               <label style="margin-bottom: 4px; display:block;">Preferred contact method</label>
-              <div class="choice-row">
+              <div class="choice-row" role="radiogroup" aria-label="Preferred contact method">
                 <label class="choice">
-                  <input type="radio" name="contact_preference" value="email" checked />
+                  <input type="radio" name="contact_choice" value="email" checked />
                   <span>Email</span>
                 </label>
                 <label class="choice">
-                  <input type="radio" name="contact_preference" value="phone_call" />
+                  <input type="radio" name="contact_choice" value="call" />
                   <span>Call</span>
                 </label>
                 <label class="choice">
-                  <input type="radio" name="contact_preference" value="text_message" />
+                  <input type="radio" name="contact_choice" value="text" />
                   <span>Text</span>
                 </label>
               </div>
             </div>
+
+            <div id="email-wrap">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" required />
+            </div>
+
+            <div id="phone-wrap" class="hidden">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" placeholder="555-555-5555" />
+            </div>
+
             <div>
               <label for="task">Describe the repetitive task</label>
-              <textarea id="task" name="message" placeholder="For example: onboarding new clients, filling the same PDFs, updating the same reports, etc." required></textarea>
+              <textarea id="task" name="message" placeholder="For example: updating the same reports, copy paste between systems, onboarding paperwork, reminders and follow ups, etc." required></textarea>
             </div>
           </div>
-        
+
           <div class="cta-row">
             <button type="submit">
               <span class="dot"></span>
-              Get my free evaluation
+              Send
             </button>
+            <div class="small-note">No pressure. If automation does not make sense, I will tell you.</div>
           </div>
         </form>
-        
 
-
-
+        <!-- ROI and time math removed for now (commented out conceptually)
+             If you want it back later, we can re add the hours and hourly cost inputs plus ROI note and script.
+        -->
 
       </div>
     </div>
   </div>
 
   <script>
-    // Rotating "Ideal for" text
     const phrases = [
       "Teams buried in Excel",
       "Repetitive data entry",
@@ -781,129 +616,84 @@
       "Endless PDF filling",
       "Manual onboarding workflows",
       "Daily spreadsheet updates",
-      "Copy-paste everywhere"
+      "Copy paste everywhere"
     ];
-  
+
     const rotatingTextEl = document.getElementById("rotating-text");
     let phraseIndex = 0;
-  
+
     function rotateText() {
       if (!rotatingTextEl) return;
       rotatingTextEl.style.opacity = 0;
-  
+
       setTimeout(() => {
         phraseIndex = (phraseIndex + 1) % phrases.length;
         rotatingTextEl.textContent = phrases[phraseIndex];
         rotatingTextEl.style.opacity = 1;
       }, 500);
     }
-  
+
     setInterval(rotateText, 2500);
-  
-    // Example pills detail panel
+
     const pills = document.querySelectorAll('.example-pill');
     const titleEl = document.getElementById('example-title');
     const textEl = document.getElementById('example-text');
-  
+
     function activatePill(pill) {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
       titleEl.textContent = pill.dataset.title;
       textEl.textContent = pill.dataset.text;
     }
-  
+
     pills.forEach(pill => {
       pill.addEventListener('mouseenter', () => activatePill(pill));
       pill.addEventListener('focus', () => activatePill(pill));
       pill.addEventListener('click', () => activatePill(pill));
     });
-
-
-    // ROI calculator (conservative: assumes at least 50% time reduction)
-    const hoursSelect = document.getElementById('time');
-    const hourlyInput = document.getElementById('hourly_cost');
-    const roiNoteEl = document.getElementById('roi-note');
-
-    function hoursRange(val) {
-      if (!val) return null;
-      if (val === '5-10') return { low: 5, high: 10, plus: false };
-      if (val === '10-20') return { low: 10, high: 20, plus: false };
-      if (val === '20+') return { low: 20, high: null, plus: true };
-      return null; // not-sure or unknown
-    }
-
-    function parseMoney(raw) {
-      if (!raw) return 0;
-      const cleaned = String(raw).replace(/[^0-9.]/g, '');
-      const num = parseFloat(cleaned);
-      return Number.isFinite(num) ? num : 0;
-    }
-
-    function formatUSD(n) {
-      if (!Number.isFinite(n) || n <= 0) return '$___';
-      const rounded = Math.round(n);
-      return '$' + rounded.toLocaleString('en-US');
-    }
-
-    function updateROI() {
-      if (!roiNoteEl) return;
-
-      const hourly = parseMoney(hourlyInput ? hourlyInput.value : '');
-      const range = hoursRange(hoursSelect ? hoursSelect.value : '');
-
-      // Before they enter an hourly value, keep it short.
-      if (!Number.isFinite(hourly) || hourly <= 0) {
-        roiNoteEl.textContent = 'Many clients see at least a 50% time reduction on workflows.';
-        return;
-      }
-
-      // If hours is unknown, keep the placeholder value.
-      if (!range) {
-        roiNoteEl.textContent = 'Many clients see at least a 50% time reduction on workflows.';
-        return;
-      }
-
-      let lowValueWeek = range.low * hourly * 0.5;
-      let highValueWeek = range.plus ? null : (range.high * hourly * 0.5);
-
-      // If the estimate is small, show it as monthly to maximize perceived value.
-      // Use the upper bound when available, otherwise use the lower bound.
-      const referenceWeek = (highValueWeek !== null) ? highValueWeek : lowValueWeek;
-      const useMonthly = referenceWeek > 0 && referenceWeek < 500;
-      const multiplier = useMonthly ? 4 : 1;
-      const periodLabel = useMonthly ? 'per month' : 'per week';
-
-      const lowValue = lowValueWeek * multiplier;
-      const highValue = (highValueWeek === null) ? null : (highValueWeek * multiplier);
-
-      if (range.plus) {
-        roiNoteEl.innerHTML =
-          'Many clients see at least a 50% time reduction on workflows, ' +
-'<span class="roi-value">which could be worth about ' + formatUSD(lowValue) + '+ ' + periodLabel + '.</span>';
-        return;
-      }
-
-      roiNoteEl.innerHTML =
-        'Many clients see at least a 50% time reduction on workflows, ' +
-'<span class="roi-value">which could be worth about ' + formatUSD(lowValue) + ' - ' + formatUSD(highValue) + ' ' + periodLabel + '.</span>';
-    }
-
-    if (hoursSelect) hoursSelect.addEventListener('change', updateROI);
-    if (hourlyInput) {
-      hourlyInput.addEventListener('input', () => {
-        // keep it "text" but strip weird characters for a clean number
-        const cleaned = hourlyInput.value.replace(/[^0-9.]/g, '');
-        if (hourlyInput.value !== cleaned) hourlyInput.value = cleaned;
-        updateROI();
-      });
-    }
-    updateROI();
-
   </script>
-  
 
   <script>
-    // Meta Pixel: track real form submissions
+    function setContactMode(mode) {
+      const emailWrap = document.getElementById('email-wrap');
+      const phoneWrap = document.getElementById('phone-wrap');
+      const emailInput = document.getElementById('email');
+      const phoneInput = document.getElementById('phone');
+      const prefHidden = document.getElementById('contact_preference');
+
+      prefHidden.value = mode;
+
+      if (mode === 'email') {
+        emailWrap.classList.remove('hidden');
+        phoneWrap.classList.add('hidden');
+        emailInput.required = true;
+        phoneInput.required = false;
+        phoneInput.value = '';
+      } else {
+        emailWrap.classList.add('hidden');
+        phoneWrap.classList.remove('hidden');
+        emailInput.required = false;
+        phoneInput.required = true;
+        emailInput.value = '';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const radios = document.querySelectorAll('input[name="contact_choice"]');
+      radios.forEach(r => {
+        r.addEventListener('change', () => {
+          const val = r.value;
+          if (val === 'email') setContactMode('email');
+          if (val === 'call') setContactMode('call');
+          if (val === 'text') setContactMode('text');
+        });
+      });
+
+      setContactMode('email');
+    });
+  </script>
+
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
       var form = document.getElementById('lead-form');
       if (!form) return;
